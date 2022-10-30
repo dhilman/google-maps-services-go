@@ -122,6 +122,10 @@ type OpeningHours struct {
 	// PermanentlyClosed indicates that the place has permanently shut down. Please
 	// note, this field will be null if it isn't present in the response.
 	PermanentlyClosed *bool `json:"permanently_closed,omitempty"`
+	// Type identifies the type of secondary hours (for example, DRIVE_THROUGH, HAPPY_HOUR, DELIVERY,
+	// TAKEOUT, KITCHEN, BREAKFAST, LUNCH, DINNER, BRUNCH, PICKUP, SENIOR_HOURS).
+	// Set for secondary_opening_hours only.
+	Type string `json:"type,omitempty"`
 }
 
 // OpeningHoursPeriod is a single OpeningHours day describing when the place opens

@@ -459,10 +459,21 @@ type PlaceDetailsResult struct {
 	Rating float32 `json:"rating,omitempty"`
 	// UserRatingsTotal contains total number of the place's ratings
 	UserRatingsTotal int `json:"user_ratings_total,omitempty"`
+	// EditorialSummary contains a summary of the place.
+	// A summary comprises a textual overview, and also includes the language code for these if applicable.
+	// Summary text must be presented as-is and can not be modified or altered.
+	EditorialSummary PlaceEditorialSummary `json:"editorial_summary,omitempty"`
 	// Types contains an array of feature types describing the given result.
 	Types []string `json:"types,omitempty"`
 	// OpeningHours may contain whether the place is open now or not.
 	OpeningHours *OpeningHours `json:"opening_hours,omitempty"`
+	// SecondaryOpeningHours contains an array of entries for the next seven days including information about
+	// secondary hours of a business. Secondary hours are different from a business's main hours.
+	// For example, a restaurant can specify drive through hours or delivery hours as its secondary hours.
+	// This field populates the type subfield, which draws from a predefined list of
+	// opening hours types (such as DRIVE_THROUGH, PICKUP, or TAKEOUT) based on the types of the place.
+	// This field includes the special_days subfield of all hours, set for dates that have exceptional hours.
+	SecondaryOpeningHours *OpeningHours `json:"secondary_opening_hours,omitempty"`
 	// Photos is an array of photo objects, each containing a reference to an image.
 	Photos []Photo `json:"photos,omitempty"`
 	// PriceLevel is the price level of the place, on a scale of 0 to 4.
@@ -497,6 +508,11 @@ type PlaceDetailsResult struct {
 	// HTMLAttributions contain a set of attributions about this listing which must be
 	// displayed to the user.
 	HTMLAttributions []string `json:"html_attributions,omitempty"`
+}
+
+type PlaceEditorialSummary struct {
+	Language string `json:"language,omitempty"`
+	Overview string `json:"overview,omitempty"`
 }
 
 // PlaceReview is a review of a Place
