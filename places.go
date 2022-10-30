@@ -477,7 +477,7 @@ type PlaceDetailsResult struct {
 	// Photos is an array of photo objects, each containing a reference to an image.
 	Photos []Photo `json:"photos,omitempty"`
 	// PriceLevel is the price level of the place, on a scale of 0 to 4.
-	PriceLevel int `json:"price_level,omitempty"`
+	PriceLevel *int `json:"price_level,omitempty"`
 	// Vicinity contains a feature name of a nearby location.
 	Vicinity string `json:"vicinity,omitempty"`
 	// PermanentlyClosed is a boolean flag indicating whether the place has permanently
