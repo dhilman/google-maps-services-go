@@ -24,7 +24,7 @@ import (
 	"log"
 	"os"
 
-	"googlemaps.github.io/maps"
+	maps "github.com/dhilman/google-maps-services-go"
 )
 
 var (

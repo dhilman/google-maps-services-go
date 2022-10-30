@@ -25,8 +25,8 @@ import (
 	"strconv"
 	"time"
 
+	maps "github.com/dhilman/google-maps-services-go"
 	"github.com/kr/pretty"
-	"googlemaps.github.io/maps"
 )
 
 var (
